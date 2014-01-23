@@ -23,7 +23,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>br.com.nozella.teste.main.App</mainClass>
+							<mainClass>br.com.nozella.teste.main.PrinterApp</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -51,7 +51,7 @@
 					</binFileExtensions>
 					<programs>
 						<program>
-							<mainClass>br.com.nozella.teste.main.App</mainClass>
+							<mainClass>br.com.nozella.teste.main.PrinterApp</mainClass>
 							<name>run</name>
 						</program>
 					</programs>
