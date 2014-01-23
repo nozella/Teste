@@ -5,11 +5,11 @@ import br.com.nozella.teste.to.PrintJob;
 
 public interface Queue {
 
-	void addBack(PrintJob job) throws FullQueueException;
-	
-	PrintJob removeFront();
-	
-	boolean isEmpty();
-	
-	int getNumberOfJobs();
+    void addBack(PrintJob job) throws FullQueueException;
+
+    PrintJob removeFront();
+
+    boolean isEmpty();
+
+    int getNumberOfJobs();
 }
