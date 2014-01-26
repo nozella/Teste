@@ -12,48 +12,42 @@ public class CircularQueue implements Queue {
         this.printJobArray = new PrintJob[capacity];
     }
 
-    public void addBack(PrintJob job) throws FullQueueException {
-        synchronized (this) {
-            int count = 0;
-            for (PrintJob printJob : this.printJobArray) {
-                if (printJob == null) {
-                    printJob = job;
-                    break;
-                } else if (++count == this.printJobArray.length) {
-                    throw new FullQueueException();
-                }
+    public synchronized void addBack(PrintJob job) throws FullQueueException {
+        if (this.printJobArray[printJobArray.length -1] != null) {
+            throw new FullQueueException();
+        }
+        for (int i = 0; i < this.printJobArray.length; i++) {
+            if (this.printJobArray[i] == null) {
+                this.printJobArray[i] = job;
+                this.notifyAll();
+                break;
             }
         }
     }
 
-    public PrintJob removeFront() {
-        synchronized (this) {
-            PrintJob printJob = this.printJobArray[0];
-            for (int i = 0; i < this.printJobArray.length - 1; i++) {
-                this.printJobArray[i] = this.printJobArray[i + 1];
-            }
-            this.printJobArray[this.printJobArray.length - 1] = null;
-            return printJob;
+    public synchronized PrintJob removeFront() {
+        PrintJob printJob = this.printJobArray[0];
+        for (int i = 0; i < this.printJobArray.length - 1; i++) {
+            this.printJobArray[i] = this.printJobArray[i + 1];
         }
+        this.printJobArray[this.printJobArray.length - 1] = null;
+        this.notifyAll();
+        return printJob;
     }
 
     public boolean isEmpty() {
-        synchronized (this) {
-            return this.printJobArray[0] == null;
-        }
+        return this.printJobArray[0] == null;
     }
 
     public int getNumberOfJobs() {
-        synchronized (this) {
-            int count = 0;
-            for (PrintJob printJob : this.printJobArray) {
-                if (printJob != null) {
-                    count++;
-                } else {
-                    break;
-                }
+        int count = 0;
+        for (PrintJob printJob : this.printJobArray) {
+            if (printJob != null) {
+                count++;
+            } else {
+                break;
             }
-            return count;
         }
+        return count;
     }
 }
