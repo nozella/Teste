@@ -14,7 +14,7 @@ import br.com.nozella.teste.exception.FullQueueException;
 import br.com.nozella.teste.queue.Queue;
 import br.com.nozella.teste.to.PrintJob;
 
-public class Producer extends Thread {
+public class Producer extends Thread implements Runnable {
 
     private Queue queue;
     private String dirPath;
