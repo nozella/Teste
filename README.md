@@ -24,7 +24,7 @@ Instruções de compilação:
 
 Instruções de execução:
 
-Copie os diretórios juntamente com seus conteudos do caminho "src/mail/resources" para um diretório de sua preferência, por exemplo c:\tmp (windows) ou /tmp (linux). 
+Copie os diretórios juntamente com seus conteudos do caminho "src/main/resources" para um diretório de sua preferência, por exemplo c:\tmp (windows) ou /tmp (linux). 
 Lembre-se que esse diretório será usado durante a execução do programa e fará parte dos parametros de entrada para execução do programa;
 
 Considerando que tenha copiado os conteúdos para o diretorio "tmp" na raiz de seu sistema operacional, siga as instruções da seguinte forma.
