@@ -9,8 +9,10 @@ public class PrinterApp extends Thread {
 
     public static void main(String[] args) throws Exception {
         if (args.length < 2) {
-            System.out.println("Eh necessario:\n primeiro argumento: a capacidade da fila de impressao\n "
+            System.out.println("Eh necessario:\n "
+            		+ "primeiro argumento: a capacidade da fila de impressao\n "
                     + "segundo argumento e demais: path completo dos arquivos onde constam a lista de documentos a imprimir");
+            return;
         }
         Queue queue = new CircularQueue(Integer.valueOf(args[0]));
         String[] pathArray = new String[args.length -1];
